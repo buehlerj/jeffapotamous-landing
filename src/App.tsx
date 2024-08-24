@@ -1,35 +1,93 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import './app.css';
+import LandingNavbar from './components/Landing/Landing';
+import StarWarsLib from './components/StarWarsLib/StarWarsLib';
+import GitHub from './components/GitHub/GitHub';
+import HomeLab from './components/HomeLab/HomeLab';
+import About from './components/About/About';
+import Tech from './components/Tech/Tech';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faComputer } from '@fortawesome/free-solid-svg-icons';
+import { faServer } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
+import { Tooltip } from 'react-tooltip';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <LandingNavbar />,
+    errorElement: <div>404 Not Found</div>,
+  },
+  { path: '/starwarslib', element: <StarWarsLib /> },
+  { path: '/github', element: <GitHub /> },
+  { path: '/homelab', element: <HomeLab /> },
+  { path: '/tech', element: <Tech /> },
+  { path: '/about', element: <About /> },
+]);
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+      <Tooltip id="app-tooltip" />
+
+      <div id="nav-side-bar">
+        <a href="/">
+          <FontAwesomeIcon icon={faHome} className="nav-side-bar-item" />
         </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+
+        <a href="/starwarslib">
+          <img
+            src="/src/assets/books.png"
+            className="nav-side-bar-item"
+            data-tooltip-id="app-tooltip"
+            data-tooltip-content="Star Wars Library"
+          />
+        </a>
+
+        <a href="/github">
+          <FontAwesomeIcon
+            icon={faGithub}
+            className="nav-side-bar-item"
+            data-tooltip-id="app-tooltip"
+            data-tooltip-content="Github"
+          />
+        </a>
+
+        <a href="/homelab">
+          <FontAwesomeIcon
+            icon={faServer}
+            className="nav-side-bar-item"
+            data-tooltip-id="app-tooltip"
+            data-tooltip-content="Home Lab"
+          />
+        </a>
+        <a href="/tech">
+          <FontAwesomeIcon
+            icon={faComputer}
+            className="nav-side-bar-item"
+            data-tooltip-id="app-tooltip"
+            data-tooltip-content="Tech Projects"
+          />
+        </a>
+
+        <a href="/about">
+          <FontAwesomeIcon
+            icon={faInfoCircle}
+            className="nav-side-bar-item"
+            id="about-me-icon"
+            data-tooltip-id="app-tooltip"
+            data-tooltip-content="About"
+          />
         </a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      <RouterProvider router={router} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

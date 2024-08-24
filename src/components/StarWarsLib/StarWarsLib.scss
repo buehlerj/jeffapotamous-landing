@@ -1,0 +1,26 @@
+.section {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  transition: transform 0.5s ease-in-out;
+  padding: 1em;
+}
+
+#section1 {
+  background: linear-gradient(to bottom, #15331f, #0c1a11);
+}
+#section2 {
+  background: linear-gradient(to bottom, #53153b, #2d1222);
+}
+#section3 {
+  background: linear-gradient(to bottom, #534915, #25200b);
+}
+#section4 {
+  background: linear-gradient(to bottom, #152c33, #331528);
+}
+
+.image-section {
+  width: 60vw;
+}
