@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './app.css';
+import './App.scss';
 import LandingNavbar from './components/Landing/Landing';
 import StarWarsLib from './components/StarWarsLib/StarWarsLib';
 import GitHub from './components/GitHub/GitHub';

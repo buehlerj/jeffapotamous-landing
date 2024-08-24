@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "docker-image": "docker build -t jeffapotamous/landing:0.0.1-beta . && docker push jeffapotamous/landing:0.0.1-beta"
+    "docker-image": "docker build -t jeffapotamous/landing:0.0.2-beta . && docker push jeffapotamous/landing:0.0.2-beta"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
